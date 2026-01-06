@@ -1,0 +1,321 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Vehicle Categorization</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#1E3D59',
+        secondary: '#57B5E7'
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '4px',
+        DEFAULT: '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        'full': '9999px',
+        'button': '8px'
+      }
+    }
+  }
+}
+</script>
+<style>
+  :where([class^="ri-"])::before { content: "\f3c2"; }
+  .nav-link { @apply px-4 py-2 text-gray-700 hover:text-primary transition-colors; }
+  .nav-link.active { @apply text-primary font-semibold; }
+  .section-title { @apply text-4xl font-bold text-primary mb-8; }
+  .feature-card { @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow; }
+</style>
+</head>
+<body class="bg-gray-50">
+<nav class="fixed w-full bg-white shadow-md z-50">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <a href="#" class="text-2xl font-['Pacifico'] text-primary">RoadMind</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="/uploadfile" class="nav-link">Try Model</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section id="home" class="pt-24 relative overflow-hidden min-h-screen flex items-center" style="background-image: url('https://public.readdy.ai/ai/img_res/0dcc622019b48c399b65cbd6ba8c57d5.jpg'); background-size: cover; background-position: center;">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="text-white">
+        <h1 class="text-5xl font-bold mb-6">Revolutionizing Traffic Monitoring with Deep Learning technology.</h1>
+        <p class="text-xl mb-8">Deep Learning-powered system for real-time vehicle detection and classification.</p>
+        <div class="flex space-x-4">
+          <button class="!rounded-button bg-primary text-white px-8 py-3 hover:bg-opacity-90 transition-colors">Get Started</button>
+          <button class="!rounded-button bg-white text-primary px-8 py-3 hover:bg-opacity-90 transition-colors">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center" style="font-size: 36px;">About the Project</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="feature-card">
+        <div class="w-12 h-12 flex items-center justify-center mb-4">
+          <i class="ri-road-map-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4">The Problem</h3>
+        <p class="text-gray-600">The project addresses the challenge of inaccurate and inefficient traditional traffic monitoring systems by developing a deep learning-powered solution for real-time vehicle detection, classification, and traffic analysis.</p>
+      </div>
+    <div class="feature-card">
+    <div class="w-12 h-12 flex items-center justify-center mb-4">
+      <i class="ri-database-2-line text-3xl text-primary"></i>
+    </div>
+    <h3 class="text-xl font-bold mb-4">Dataset</h3>
+    <p class="text-gray-600">The system utilizes three datasets: the Traffic Classification Dataset (41,000+ annotated images of vehicles and pedestrians), the COCO Dataset (large-scale object detection and segmentation), and the Indian Vehicle Dataset (50,000+ HD images capturing diverse Indian vehicles under varied conditions).</p>
+    </div>
+    <div class="feature-card">
+    <div class="w-12 h-12 flex items-center justify-center mb-4">
+    <i class="ri-cpu-line text-3xl text-primary"></i>
+    </div>
+    <h3 class="text-xl font-bold mb-4">The Technology</h3>
+    <p class="text-gray-600">The application is built using Flask (backend), YOLOv8 (object detection), EfficientNetB0/ResNet18 (classification), Tailwind CSS (frontend styling), and OpenCV/Numpy (image processing), deployed on scalable cloud infrastructure.</p>
+    </div>
+    </div>  
+  </div>
+</section>
+<section id="how-it-works" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center" style="font-size: 36px;">How It Works</h2>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="feature-card text-center">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center mb-4 bg-blue-50 rounded-full">
+          <i class="ri-image-add-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Step 1</h3>
+        <p class="text-gray-600">Input road scene images for processing</p>
+      </div>
+      <div class="feature-card text-center">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center mb-4 bg-blue-50 rounded-full">
+          <i class="ri-scan-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Step 2</h3>
+        <p class="text-gray-600">Generate region proposals for detection</p>
+      </div>
+      <div class="feature-card text-center">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center mb-4 bg-blue-50 rounded-full">
+          <i class="ri-fingerprint-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Step 3</h3>
+        <p class="text-gray-600">Extract features</p>
+      </div>
+      <div class="feature-card text-center">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center mb-4 bg-blue-50 rounded-full">
+          <i class="ri-car-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Step 4</h3>
+        <p class="text-gray-600">Classify objects into categories</p>
+      </div>
+    </div>
+  </div>
+  <div class="rounded-lg shadow-lg p-8">
+    <div class="relative mb-8">
+      <img src="{% static 'images/we-modified.png' %}" alt="Analyzed Image" class="w-3/5 h-auto rounded-lg mx-auto">
+    </div>
+  </div>
+</section>
+<section id="team" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center" style="font-size: 36px; margin-bottom: 50px;">Meet Our Team</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="feature-card text-center">
+        <img
+          src="{% static 'images/sir.jpg' %}"
+          class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+        />
+        <h3 class="text-xl font-bold mb-2">Dr. Senthil Kumar T</h3>
+        <p class="text-gray-600 mb-2">Professor, School of Computing, Coimbatore</p>
+        <p class="text-gray-600 mb-2">Project Guide</p>
+      </div>
+      <div class="feature-card text-center">
+        <img
+          src="{% static 'images/uday.png' %}"
+          class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+        />
+        <h3 class="text-xl font-bold mb-2">Mr. Kurla Uday Kiran Reddy</h3>
+        <p class="text-gray-600 mb-2">Student at Amrita Vishwa Vidyapeetham, Coimbatore</p>
+        <p class="text-gray-600 mb-2">Team member</p>
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-linkedin-fill"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-github-fill"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-twitter-fill"></i
+          ></a>
+        </div>
+      </div>
+      <div class="feature-card text-center">
+        <img
+          src="{% static 'images/harish.png' %}"
+          class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+        />
+        <h3 class="text-xl font-bold mb-2">Mr. Harish C M</h3>
+        <p class="text-gray-600 mb-2">Student at Amrita Vishwa Vidyapeetham, Coimbatore</p>
+        <p class="text-gray-600 mb-2">Team member</p>
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-linkedin-fill"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-github-fill"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-primary"
+            ><i class="ri-twitter-fill"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="resources" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center" style="font-size: 36px;">Resources</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="feature-card">
+        <div class="w-12 h-12 flex items-center justify-center mb-4">
+          <i class="ri-github-fill text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4">GitHub Repository</h3>
+        <p class="text-gray-600 mb-4">Access our complete source code and contribute to the project.</p>
+        <a href="https://github.com/UdayKurla/RoadMind-Automated_Vehicle_Categorization_on_Roads" class="text-primary hover:underline">View Repository →</a>
+      </div>
+      <div class="feature-card">
+        <div class="w-12 h-12 flex items-center justify-center mb-4">
+          <i class="ri-file-paper-2-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Documentation</h3>
+        <p class="text-gray-600 mb-4">Comprehensive guides and API documentation for developers.</p>
+        <a href="https://github.com/UdayKurla/RoadMind-Automated_Vehicle_Categorization_on_Roads/tree/main/Documentation" class="text-primary hover:underline">Read Docs →</a>
+      </div>
+      <div class="feature-card">
+        <div class="w-12 h-12 flex items-center justify-center mb-4">
+          <i class="ri-database-2-line text-3xl text-primary"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4">Dataset</h3>
+        <p class="text-gray-600 mb-4">Download our annotated dataset for research purposes.</p>
+        <a href="https://github.com/UdayKurla/RoadMind-Automated_Vehicle_Categorization_on_Roads/tree/main/Dataset" class="text-primary hover:underline">Access Dataset →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center" style="font-size: 36px;">Contact Us</h2>
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <form id="contactForm" class="space-y-6">
+          <div>
+            <label class="block text-gray-700 mb-2">Name</label>
+            <input type="text" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2">Email</label>
+            <input type="email" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2">Message</label>
+            <textarea class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="!rounded-button w-full bg-primary text-white py-3 hover:bg-opacity-90 transition-colors">Send Message</button>
+        </form>
+      </div>
+      <div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-mail-line text-xl text-primary"></i>
+              </div>
+              <a href="mailto:contact@example.com" class="text-gray-600 hover:text-primary">harishcm3893@gmail.com</a>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-mail-line text-xl text-primary"></i>
+              </div>
+              <a href="mailto:contact@example.com" class="text-gray-600 hover:text-primary">kurlaudaykiran@gmail.com</a>
+            </div>
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-map-pin-line text-xl text-primary"></i>
+              </div>
+              <span class="text-gray-600">Amrita University, Amritanagar, Ettimadai, Tamil Nadu 641112</span>
+            </div>
+          </div>
+          <div class="mt-8">
+            <div id="map" class="w-full h-48 rounded-lg overflow-hidden">
+              <img src="{% static 'images/Map.png' %}" alt="Map Image" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="bg-primary text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4 font-['Pacifico']">RoadMind</h3>
+        <p class="text-gray-300">Revolutionizing traffic monitoring with Deep Learning technology.</p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
+          <li><a href="#about" class="text-gray-300 hover:text-white">About</a></li>
+          <li><a href="#how-it-works" class="text-gray-300 hover:text-white">How It Works</a></li>
+          <a href="#team" class="text-gray-300 hover:text-white">Team</a>
+          <li><a href="/uploadfile" class="text-gray-300 hover:text-white">Try Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Resources</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-300 hover:text-white">GitHub</a></li>
+          <li><a href="https://www.kaggle.com/datasets/arup7365/traffic-classification-dataset/" class="text-gray-300 hover:text-white">Dataset</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Connect</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white"><i class="ri-twitter-fill"></i></a>
+          <a href="#" class="text-gray-300 hover:text-white"><i class="ri-linkedin-fill"></i></a>
+          <a href="#" class="text-gray-300 hover:text-white"><i class="ri-github-fill"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html> 
